@@ -11,6 +11,5 @@ def home():
     client.run(D_TOKEN)
     return f"{ip_address}"
 
-
 if __name__ == '__main__':
     app.run(debug=True)
