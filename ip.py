@@ -1,7 +1,8 @@
 from flask import Flask, request
 from bot import *
-from env import D_TOKEN
+import os
 
+D_TOKEN = os.getenv('D_TOKEN')
 app = Flask(__name__)
 ip_address = None
 

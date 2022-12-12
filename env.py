@@ -1,1 +1,0 @@
-D_TOKEN = "OTQ5MzE0OTc2MDU1NjkzNDEy.Gbm6_B.bSnuGpZXf9sH3WoeelEZHnd3ut5WvWJ8ocd_3c"
