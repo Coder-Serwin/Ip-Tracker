@@ -1,18 +1,23 @@
-from flask import Flask, request
+from flask import Flask, request, redirect
 from bot import *
-import os
+import random
+from subprocess import call
+import time
 
-D_TOKEN = os.getenv('D_TOKEN')
 os.environ['IP_ADDR'] = "None"
 app = Flask(__name__)
 ip_address = None
 
+
 @app.route('/')
 def home():
-    ip_address = request.remote_addr
+    ip_address = request.environ.get('HTTP_X_FORWARDED_FOR',
+                                     request.remote_addr)
     os.environ['IP_ADDR'] = ip_address
-    client.run(D_TOKEN)
-    return f"{ip_address}"
+    time.sleep(1)
+    call(["python", "bot.py"])
+    return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=random.randint(2000, 9000))
