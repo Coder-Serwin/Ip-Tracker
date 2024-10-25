@@ -26,8 +26,8 @@ class MyClient(discord.Client):
             embed.add_field(name="Latitude", value=la_response)
             embed.add_field(name="Longittude", value=lo_response)
             embed.add_field(name="Region", value=region)
-            #map_url = f'https://www.google.com/maps/place/{la_response}+{lo_response}/'
-            #embed.add_field(name="Map URl", value=map_url)
+            map_url = f'https://www.google.com/maps/place/@{la_response},{lo_response}/'
+            embed.add_field(name="Map URl", value=map_url)
             await channeln.send(embed=embed)
             time.sleep(1)
             await client.close()
